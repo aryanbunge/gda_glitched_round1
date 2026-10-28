@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "title": "Collect the Coin",
+    "glitch": "The coin disappears, but the score stays at 0.",
+    "code": "if (player.Touches(coin))\n{\n    coin.Visible = false;\n    score = score + 0;\n}",
+    "image": "/images/question-01.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Jump Button",
+    "glitch": "The player jumps when the button is not pressed.",
+    "code": "if (!jumpButtonPressed)\n{\n    player.Jump();\n}",
+    "image": "/images/question-02.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Door Key",
+    "glitch": "The player has the key, but the locked door will not open.",
+    "code": "if (hasKey && player.Touches(door))\n{\n    door.Open = false;\n}",
+    "image": "/images/question-03.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Health Pickup",
+    "glitch": "The heart pickup makes the player lose health.",
+    "code": "if (player.Touches(heart))\n{\n    health = health - 1;\n    heart.Visible = false;\n}",
+    "image": "/images/question-04.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Moving Platform",
+    "glitch": "The platform moves left when the game says to move right.",
+    "code": "if (moveRight)\n{\n    platform.X = platform.X - speed;\n}",
+    "image": "/images/question-05.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Too Many Lives",
+    "glitch": "The life counter jumps up after the player gets hit.",
+    "code": "if (player.Touches(enemy))\n{\n    lives = lives + 1;\n}",
+    "image": "/images/question-06.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Finish Line",
+    "glitch": "The player reaches the finish, but the level does not end.",
+    "code": "if (player.Touches(finishFlag))\n{\n    levelComplete = false;\n}",
+    "image": "/images/question-07.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Enemy Patrol",
+    "glitch": "The enemy walks away from the edge and falls off the platform.",
+    "code": "if (enemy.AtEdge())\n{\n    enemy.Direction = RIGHT;\n}",
+    "image": "/images/question-08.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Countdown Timer",
+    "glitch": "The countdown timer grows instead of shrinking.",
+    "code": "if (timer > 0)\n{\n    timer = timer + 1;\n}",
+    "image": "/images/question-09.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Full Energy Bar",
+    "glitch": "Energy goes above its maximum after collecting a battery.",
+    "code": "if (player.Touches(battery))\n{\n    energy = energy + 2;\n    battery.Visible = false;\n}",
+    "image": "/images/question-10.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Wrong Way Sign",
+    "glitch": "The game shows WRONG WAY while the player moves toward the goal.",
+    "code": "if (car.Direction == goal.Direction)\n{\n    showWrongWay = true;\n}",
+    "image": "/images/question-11.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Balloon Pop",
+    "glitch": "The balloon pops before the dart reaches it.",
+    "code": "if (dart.X < balloon.X)\n{\n    balloon.Popped = true;\n}",
+    "image": "/images/question-12.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Open Chest",
+    "glitch": "The chest opens even when the player is standing far away.",
+    "code": "if (player.DistanceTo(chest) > 2)\n{\n    chest.Open = true;\n}",
+    "image": "/images/question-13.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Level Gate",
+    "glitch": "The gate opens before the player collects all three stars.",
+    "code": "if (stars >= 3)\n{\n    gate.Open = false;\n}",
+    "image": "/images/question-14.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Quiet Footsteps",
+    "glitch": "Footstep sound plays while the player is standing still.",
+    "code": "if (player.IsMoving)\n{\n    playFootstep = false;\n}",
+    "image": "/images/question-15.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Dodge Roll",
+    "glitch": "The player keeps rolling after the roll button is released.",
+    "code": "if (rollButtonPressed)\n{\n    rolling = false;\n}",
+    "image": "/images/question-16.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Water Splash",
+    "glitch": "The player takes damage while safely standing on dry ground.",
+    "code": "if (player.Y < waterLevel)\n{\n    health = health - 1;\n}",
+    "image": "/images/question-17.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Checkpoint",
+    "glitch": "The checkpoint saves the starting spawn point instead of the new one.",
+    "code": "if (player.Touches(checkpoint))\n{\n    savedX = startX;\n    savedY = startY;\n}",
+    "image": "/images/question-18.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Break the Brick",
+    "glitch": "The brick remains solid after its health reaches zero.",
+    "code": "if (brick.HP <= 0)\n{\n    brick.Visible = true;\n}",
+    "image": "/images/question-19.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Potion Use",
+    "glitch": "The potion is consumed but does not restore magic.",
+    "code": "if (usePotion)\n{\n    magic = magic + 0;\n    potionCount = potionCount - 1;\n}",
+    "image": "/images/question-20.jpg"
+  },
+  {
+    "id": 21,
+    "title": "Collect All Gems",
+    "glitch": "The level ends after the first gem.",
+    "code": "if (gems > 0)\n{\n    levelComplete = true;\n}",
+    "image": "/images/question-21.png"
+  },
+  {
+    "id": 22,
+    "title": "High Score",
+    "glitch": "A lower score overwrites the best score.",
+    "code": "if (score < bestScore)\n{\n    bestScore = score;\n}",
+    "image": ""
+  },
+  {
+    "id": 23,
+    "title": "Red Light",
+    "glitch": "The player can move during the red light.",
+    "code": "if (lightIsRed)\n{\n    canMove = true;\n}",
+    "image": "/images/question-23.png"
+  },
+  {
+    "id": 24,
+    "title": "Pause Menu",
+    "glitch": "The game keeps updating while the pause menu is open.",
+    "code": "if (isPaused)\n{\n    updateWorld = true;\n}",
+    "image": "/images/question-24.png"
+  },
+  {
+    "id": 25,
+    "title": "Wrong Door",
+    "glitch": "The player enters the red door when choosing the blue door.",
+    "code": "if (blueDoorSelected)\n{\n    enter(redDoor);\n}",
+    "image": "/images/question-25.png"
+  },
+  {
+    "id": 26,
+    "title": "Bridge Repair",
+    "glitch": "The bridge is repaired while the player has no wood.",
+    "code": "if (wood >= 3)\n{\n    bridge.Repaired = false;\n    wood = wood - 3;\n}",
+    "image": "/images/question-26.png"
+  },
+  {
+    "id": 27,
+    "title": "Target Practice",
+    "glitch": "A target is counted as hit when the shot misses to the left.",
+    "code": "if (shot.X < target.X)\n{\n    hits = hits + 1;\n}",
+    "image": "/images/question-27.png"
+  },
+  {
+    "id": 28,
+    "title": "Race Lap Counter",
+    "glitch": "The lap counter decreases when the car crosses the finish line.",
+    "code": "if (car.Touches(finishLine))\n{\n    lap = lap - 1;\n}",
+    "image": "/images/question-28.png"
+  },
+  {
+    "id": 29,
+    "title": "Hide in the Bush",
+    "glitch": "The player is marked hidden while standing in the open.",
+    "code": "if (player.Touches(bush))\n{\n    hidden = false;\n}",
+    "image": "/images/question-29.png"
+  },
+  {
+    "id": 30,
+    "title": "Collect the Ammo",
+    "glitch": "Ammo is consumed when the player picks up a box.",
+    "code": "if (player.Touches(ammoBox))\n{\n    ammo = ammo - 5;\n    ammoBox.Visible = false;\n}",
+    "image": "/images/question-30.png"
+  }
+]
